@@ -4,13 +4,12 @@ import jwt from 'express-jwt';
 import { RequestOptions } from 'node:http';
 
 import { getAuthTokenPublicKey, getTablesApiBase, getTablesApiKey } from './config';
-import { Profile } from './tokens/token-models';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
     interface User {
-      profile?: Profile;
+      profile?: unknown;
     }
 
     interface Request {
