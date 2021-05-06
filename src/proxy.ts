@@ -2,7 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import proxy from 'express-http-proxy';
 import { RequestOptions } from 'node:http';
 
-import { getTablesApiBase, getTablesApiKey } from './config';
+import { getProfilesApiBase, getProfilesApiKey, getTablesApiBase, getTablesApiKey } from './config';
 import { firebaseVerifyId } from './firebase-id';
 
 declare global {
@@ -44,3 +44,7 @@ proxyRouter.use(firebaseVerifyId, (req: Request, res: Response, next: NextFuncti
 });
 
 proxyRouter.use('/tables', proxy(getTablesApiBase(), proxyOptions(getTablesApiKey(), '/tables')));
+proxyRouter.use(
+  '/profiles',
+  proxy(getProfilesApiBase(), proxyOptions(getProfilesApiKey(), '/profiles'))
+);
