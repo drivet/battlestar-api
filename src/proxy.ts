@@ -22,7 +22,7 @@ function proxyOptions(apiKey: string, path_prefix: string): proxy.ProxyOptions {
       }
       proxyReqOpts.headers['x-api-key'] = apiKey;
       if (srcReq.decodedToken) {
-        proxyReqOpts.headers['x-uid'] = srcReq.decodedToken.uid;
+        proxyReqOpts.headers['x-user'] = srcReq.decodedToken.uid;
       }
       delete proxyReqOpts.headers['Authorization'];
       delete proxyReqOpts.headers['authorization'];

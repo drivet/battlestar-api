@@ -22,4 +22,4 @@ app.use(cors());
 app.use('/', proxyRouter);
 
 const port = getPort();
-app.listen(port, () => console.log(`Battlestar-api listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Battlestar-gateway listening at http://localhost:${port}`));
